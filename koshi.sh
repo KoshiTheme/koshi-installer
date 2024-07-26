@@ -29,8 +29,15 @@ cd "$PANEL_DIR"
 # Put Pterodactyl panel into maintenance mode
 php artisan down
 
-# Download and extract the latest theme release
-curl -L https://github.com/KoshiTheme/panel/releases/latest/download/panel.tar.gz | tar -xzv
+rm panel.tar.gz
+
+curl -L -o panel.tar.gz https://github.com/KoshiTheme/panel/releases/latest/download/panel.tar.gz
+
+# Verify the file is a gzip archive
+if ! file panel.tar.gz | grep -q gzip; then
+    echo "Downloaded file is not a valid gzip archive. Exiting installation."
+    exit 1
+fi
 
 # Set proper permissions
 chmod -R 755 storage/* bootstrap/cache
