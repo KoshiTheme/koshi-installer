@@ -1,0 +1,2 @@
+# koshi-installer
+KoshiPanel installer
