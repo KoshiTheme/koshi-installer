@@ -31,7 +31,7 @@ php artisan down
 
 rm panel.tar.gz
 
-curl -L -o panel.tar.gz https://github.com/KoshiTheme/panel/releases/latest/download/panel.tar.gz
+curl -L -o panel.tar.gz https://github.com/KoshiTheme/panel/releases/download/v1.0/panel.tar.gz
 
 # Verify the file is a gzip archive
 if ! file panel.tar.gz | grep -q gzip; then
